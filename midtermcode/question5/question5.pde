@@ -13,7 +13,11 @@ void setup(){
 
 void draw(){
   background(bgColor); 
+<<<<<<< HEAD
   text("background # : " + bgColor, 100, 100); 
+=======
+  text("back ground # : " + bgColor, 100, 100); 
+>>>>>>> 2f7f6805b723e063ed9cded3a0110f21510b9468
   R = int(random(255));
   G = int(random(255));
   B = int(random(255));

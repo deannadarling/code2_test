@@ -1,17 +1,27 @@
+<<<<<<< HEAD
 ArrayList<Object> myObject;
 //Object myObject;  //create arraylist
+=======
+
+Object myObject;  
+>>>>>>> 2f7f6805b723e063ed9cded3a0110f21510b9468
 
 void setup(){
   size(600, 600); 
   
+<<<<<<< HEAD
   myObject = new ArrayList<Object>();
   //Object(width/2, height/2);
   myObject.add(new Object(width/2,height/2));
+=======
+  myObject = new Object(width/2, height/2); 
+>>>>>>> 2f7f6805b723e063ed9cded3a0110f21510b9468
 }
 
 void draw(){
   background(255); 
   
+<<<<<<< HEAD
   for(int i = 0; i < myObject.size(); i++){ //call upon all in a loop
     
     Object deannaObject = myObject.get(i);
@@ -28,11 +38,22 @@ void draw(){
   deannaObject.addForce(wind);
   
   }
+=======
+  PVector gravity = new PVector(0, .1*o.mass); 
+  PVector wind = new PVector(0.1, 0); 
+
+  myObject.move(); 
+  myObject.checkBoundaries(); 
+  myObject.display(); 
+>>>>>>> 2f7f6805b723e063ed9cded3a0110f21510b9468
    
 }
 
 void mousePressed(){
+<<<<<<< HEAD
   myObject.add(new Object(mouseX, mouseY));
+=======
+>>>>>>> 2f7f6805b723e063ed9cded3a0110f21510b9468
 
 }
 
@@ -51,7 +72,11 @@ class Object{
   
   void move(){
     vel.add(accel); 
+<<<<<<< HEAD
     pos.add(vel); //to change velocity you have to change acceleration
+=======
+    pos.add(vel); 
+>>>>>>> 2f7f6805b723e063ed9cded3a0110f21510b9468
     
     accel.mult(0); 
   }
@@ -78,8 +103,11 @@ class Object{
   } 
   
   void addForce(PVector force){
+<<<<<<< HEAD
     accel.add(force); //adding force to acceleration
     //you use accel because it acts upon velocity
+=======
+>>>>>>> 2f7f6805b723e063ed9cded3a0110f21510b9468
     
   }
 }

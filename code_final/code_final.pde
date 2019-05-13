@@ -3,7 +3,6 @@ import processing.sound.*;
 int stage =1;
 PFont font;
 
-boolean presseth; 
 PImage startscreen;
 PImage momhome;
 PImage mami;
@@ -14,8 +13,6 @@ PImage mompark;
 PImage momrun;
 PImage mommycar;
 
-
-//boolean openNow = false;
 SoundFile knob;
 
 void setup() {
@@ -35,7 +32,7 @@ void setup() {
   
   knob = new SoundFile(this, "olddoor.mp3");
   //knob.play();
-  knob.amp(2);
+  //knob.amp(2);
   
 }
 void startscreen(){
@@ -67,7 +64,7 @@ void mompark() {
 } //this is the left window
 
 void momrun() {
-image(momrun, 480, 400,1000,1000);
+image(momrun, 500, 400,1000,1000);
 }
 
 
@@ -82,6 +79,7 @@ void draw() {
     textFont(font);
     text("WHERE IS YOUR HOME?", 500,450);
     text("PRESS 'D' TO START GAME", 500, 500);
+    text("THEN OPEN THE DOOR TO LEARN MORE", 500, 550);
     if(keyPressed == true){
       if (key == 'd' || key == 'D') {
       stage = 2;
@@ -94,27 +92,25 @@ void draw() {
       && mouseY < 615 && mouseY > 400 && mousePressed) { //left window
         stage = 3;
     }
-    
-   
       if (mouseX < 735 && mouseX > 590
       && mouseY < 620 && mouseY > 390 && mousePressed) { //right window
-        mombeach();  
+        stage = 4;
+        
     }
       if (mouseX < 205 && mouseX > 0
       && mouseY < 110 && mouseY > 0 && mousePressed) { //sun
-        mami();  
+        stage = 5; 
     }
     if (mouseX < 640 && mouseX > 435
      && mouseY < 855 && mouseY > 778 && mousePressed) { //ladder
-        momrun();  
+        stage = 6;  
     }
     if(mouseX < 575 && mouseX > 545
         && mouseY < 730 && mouseY > 695 && mousePressed)
         {
-          println("i");
-         
           knob.play();
-          knob.amp(2);
+          knob.amp(0.5);
+          stage = 7;
         }else{
           
         knob.stop();
@@ -131,17 +127,50 @@ void draw() {
         stage = 2;
       }
       }
-    
  
       if (stage == 4){
-      if (mouseX < 290 && mouseX > 250
-        && mouseY < 330 && mouseY > 270) { //left window
-        background(0);
-        mompark();
-        stage = 3;
+        mombeach(); 
+      if(mouseX < 200 && mouseX > 100
+        && mouseY < 550 && mouseY > 500 && mousePressed)
+        {
+        stage = 2;
       }
+      }
+      if (stage == 5){
+        mami(); 
+      if(mouseX < 200 && mouseX > 100
+        && mouseY < 550 && mouseY > 500 && mousePressed)
+        {
+        stage = 2;
+      }
+      }
+      if (stage == 6){
+        momrun(); 
+      if(mouseX < 200 && mouseX > 100
+        && mouseY < 550 && mouseY > 500 && mousePressed)
+        {
+        stage = 2;
+      }
+      }
+      
+      
+      if (stage == 7){
+        background(238, 181, 146); 
+        text("click the windows, doors, and floors, find out.. more", 500,500);
+        text("oh, and click the thing that soars!", 500,550);
+        fill(0);
+        text("home",100,100);
+        rect(50,70, 120, 50);
+        fill(255);
+        
+      if(mouseX < 170 && mouseX > 50
+        && mouseY < 120 && mouseY > 70 && mousePressed)
+        {
+        stage = 2;
+      }
+      }
+     
   }
     
 
-}
   
